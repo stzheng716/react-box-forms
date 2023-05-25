@@ -1,11 +1,9 @@
 import React, { useState } from "react";
+import "./NewBoxForm.css";
 
 function NewBoxForm({submit}){
-    const [formData, setFormData] = useState({
-        height: "",
-        width: "",
-        backgroundColor: ""
-    })
+    const initialForm = {height:"", width:"", backgroundColor:""};
+    const [formData, setFormData] = useState(initialForm);
 
     function handleChange(evt){
         const { name, value } = evt.target;
@@ -13,19 +11,30 @@ function NewBoxForm({submit}){
           ...fData,
           [name]: value,
         }));
+    }
 
+    function handleSubmit(evt) {
+        evt.preventDefault();
+
+        if (Object.values(formData).every(input => input === "")) {
+            console.log("formData", formData);
+            alert("Need inputs!");
+        } else {
+            submit(formData);
+            setFormData(initialForm);
+        }
     }
 
     return (
     <form>
-        <label htmlFor="height">height: </label>
+        <label htmlFor="height">Height: </label>
         <input
             id="height"
             name="height"
             value={formData.height}
             onChange={handleChange}
         />
-        <label htmlFor="width">width: </label>
+        <label htmlFor="width">Width: </label>
         <input
             id="width"
             name="width"
@@ -39,5 +48,8 @@ function NewBoxForm({submit}){
             value={formData.backgroundColor}
             onChange={handleChange}
         />
+        <button onClick={handleSubmit}>Create Block</button>
     </form>)
 }
+
+export default NewBoxForm;

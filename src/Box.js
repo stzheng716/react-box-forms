@@ -1,14 +1,17 @@
 import React from "react";
+import "./Box.css";
 
 function Box({ height, width, backgroundColor, click }) {
+    console.log('inputs: ', height, width, backgroundColor);
     const boxStyle = {
-        height,
-        width,
+        height: `${height * 100}px`,
+        width: `${width * 100}px`,
         backgroundColor,
     }
+    console.log("boxStyle", boxStyle);
     return (
-        <div>
-            <div style={boxStyle}>
+        <div className="box-container">
+            <div className="box" style={boxStyle}> hello
             </div>
             <button onClick={click}>X</button>
         </div>
