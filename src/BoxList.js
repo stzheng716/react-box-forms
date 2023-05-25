@@ -3,6 +3,17 @@ import { v4 as uuid } from 'uuid';
 import Box from "./Box"
 import NewBoxForm from "./NewBoxForm";
 
+/** Component for BoxList
+ *
+ * State:
+ * - boxList: array of boxes
+ *
+ * BoxList handles rendering newBoxForm and Boxes
+ *
+ * App => BoxList => NewBoxForm, Box
+ */
+
+
 function BoxList() {
     const [boxList, setBoxList] = useState([])
 
@@ -19,7 +30,11 @@ function BoxList() {
         <div>
             <NewBoxForm submit={addNewBox}/>
             {boxList.map(box =>
-            <Box height={box.height} width={box.width} backgroundColor={box.backgroundColor} key={box.id} click={() => handleRemoveBox(box.id)} />)}
+            <Box 
+            height={box.height} 
+            width={box.width} 
+            backgroundColor={box.backgroundColor} 
+            key={box.id} click={() => handleRemoveBox(box.id)} />)}
         </div>
     )
 }

@@ -1,6 +1,14 @@
 import React from "react";
 import "./Box.css";
 
+/** Component for Box
+ *
+ * Props:
+ * - box inputs: { height, width, backgroundColor, click }
+ *
+ * Renders a box based on the props
+ */
+
 function Box({ height, width, backgroundColor, click }) {
     console.log('inputs: ', height, width, backgroundColor);
     const boxStyle = {

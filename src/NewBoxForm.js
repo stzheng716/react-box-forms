@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import "./NewBoxForm.css";
 
+/** Form for a NewBoxForm.
+ *
+ * Props:
+ * - submit: callback to add new box
+ *
+ * State:
+ * - form data: {height:"", width:"", backgroundColor:""}
+ *
+ * Take in data submitted for a box to be rendered 
+ * 
+ */
+
 function NewBoxForm({submit}){
     const initialForm = {height:"", width:"", backgroundColor:""};
     const [formData, setFormData] = useState(initialForm);
@@ -17,7 +29,6 @@ function NewBoxForm({submit}){
         evt.preventDefault();
 
         if (Object.values(formData).some(input => input === "")) {
-            console.log("formData", formData);
             alert("Need inputs!");
         } else {
             submit(formData);
