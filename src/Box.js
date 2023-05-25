@@ -11,7 +11,7 @@ function Box({ height, width, backgroundColor, click }) {
     console.log("boxStyle", boxStyle);
     return (
         <div className="box-container">
-            <div className="box" style={boxStyle}> hello
+            <div className="box" style={boxStyle}>
             </div>
             <button onClick={click}>X</button>
         </div>
