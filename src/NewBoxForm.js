@@ -16,7 +16,7 @@ function NewBoxForm({submit}){
     function handleSubmit(evt) {
         evt.preventDefault();
 
-        if (Object.values(formData).every(input => input === "")) {
+        if (Object.values(formData).some(input => input === "")) {
             console.log("formData", formData);
             alert("Need inputs!");
         } else {
